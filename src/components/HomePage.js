@@ -1,5 +1,9 @@
 import React from "react";
-import { InputGroup, InputGroupText, Input } from "reactstrap";
+import { InputGroup, InputGroupText, Input, Badge } from "reactstrap";
+
+//Components
+import HomePageTabs from "./HomePageTabs";
+import HomePageTabContent from "./HomePageTabContent";
 
 const HomePage = props => {
   return (
@@ -16,7 +20,15 @@ const HomePage = props => {
           onKeyPress={props.getSummoner}
         />
       </InputGroup>
-      <h1>{props.account.name.length < 1 ? "" : props.account.id}</h1>
+      <h2>
+        <Badge color="primary">
+          {props.account.name.length < 1 || props.account.id === "error"
+            ? ""
+            : props.account.name}
+        </Badge>
+      </h2>
+      <HomePageTabs {...props} />
+      <HomePageTabContent {...props} />
     </div>
   );
 };

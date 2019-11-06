@@ -1,7 +1,8 @@
 import React from "react";
 
-const RankedInfoPage = () => {
-  return <div>RankedInfoPage</div>;
+const RankedInfo = props => {
+  if (props.account.id) props.getRankedInfo();
+  return <div>Ranked Info</div>;
 };
 
-export default RankedInfoPage;
+export default RankedInfo;

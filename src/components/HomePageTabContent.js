@@ -1,20 +1,18 @@
 import React from "react";
 import { TabContent, TabPane } from "reactstrap";
 
-//Components
-import ChampionInfoPage from "./ChampionInfo";
-import RankedInfoPage from "./RankedInfo";
-
 //Containers
+import RankedInfoContainer from "../containers/RankedInfoContainer";
+import ChampionMasteryContainer from "../containers/ChampionMasteryContainer";
 
 const HomePageTabContent = props => {
   return (
     <TabContent activeTab={props.tab}>
       <TabPane tabId="1">
-        <ChampionInfoPage />
+        <RankedInfoContainer />
       </TabPane>
       <TabPane tabId="2">
-        <RankedInfoPage />
+        <ChampionMasteryContainer />
       </TabPane>
     </TabContent>
   );

@@ -11,7 +11,6 @@ import HomePage from "../components/HomePage";
 
 //Variables
 const apiKey = process.env.REACT_APP_LEAGUE_API_KEY;
-const freeChampsUri = `/lol/platform/v3/champion-rotations/?api_key=${apiKey}`;
 
 export class HomePageContainer extends React.Component {
   constructor(props) {
@@ -20,9 +19,9 @@ export class HomePageContainer extends React.Component {
     this.getSummoner = this.getSummoner.bind(this);
   }
 
-  toggle(tab) {
+  toggle = tab => {
     if (this.props.tab !== tab) this.props.setActiveTab(tab);
-  }
+  };
 
   getSummoner = e => {
     if (e.key === "Enter" && e.target.value.length > 0) {

@@ -1,24 +1,24 @@
 import React from "react";
-import axios from "axios";
+import { InputGroup, InputGroupText, Input } from "reactstrap";
 
-const HomePage = () => {
-  getFreeChamps();
+const HomePage = props => {
   return (
     <div>
-      <h1>Home</h1>
+      <InputGroup className="searchbox">
+        <InputGroupText>search</InputGroupText>
+        <Input
+          placeholder={
+            props.account.id === "error"
+              ? "Please enter a valid Summoner Name"
+              : "Summoner Name..."
+          }
+          type="text"
+          onKeyPress={props.getSummoner}
+        />
+      </InputGroup>
+      <h1>{props.account.name.length < 1 ? "" : props.account.id}</h1>
     </div>
   );
 };
 
 export default HomePage;
-
-const uri = `/lol/platform/v3/champion-rotations/?api_key=${process.env.REACT_APP_LEAGUE_API_KEY}`;
-const getFreeChamps = () => {
-  axios(uri)
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};

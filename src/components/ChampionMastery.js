@@ -2,9 +2,8 @@ import React from "react";
 import { Table } from "reactstrap";
 
 const ChampionMastery = props => {
-  // props.getChampionMastery();
   return (
-    <Table>
+    <Table striped>
       <thead>
         <tr>
           <th>Champion ID</th>
@@ -29,4 +28,5 @@ const renderTableData = props => {
     );
   });
 };
+
 export default ChampionMastery;

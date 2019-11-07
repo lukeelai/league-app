@@ -17,10 +17,11 @@ export class ChampionMasteryContainer extends React.Component {
     this.getChampionMastery = this.getChampionMastery.bind(this);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.account.championMastery.length === 0) {
-      this.getChampionMastery();
-    } else if (prevProps.account.id !== this.props.account.id) {
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.account.championMastery.length === 0 ||
+      prevProps.account.id !== this.props.account.id
+    ) {
       this.getChampionMastery();
     }
   }

@@ -20,7 +20,7 @@ const HomePage = props => {
           onKeyPress={props.getSummoner}
         />
       </InputGroup>
-      <h2>
+      <h2 className="text-center">
         <Badge color="primary">
           {props.account.name.length < 1 || props.account.id === "error"
             ? ""

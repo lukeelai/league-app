@@ -3,8 +3,10 @@ import axios from "axios";
 import { connect } from "react-redux";
 
 //Actions
+import { addMatches } from "../actions/matches";
 
 //Components
+import MatchHistory from "../components/MatchHistory";
 
 //Variables
 const apiKey = process.env.REACT_APP_LEAGUE_API_KEY;
@@ -15,15 +17,36 @@ export class MatchHistoryContainer extends React.Component {
     this.getMatchHistory = this.getMatchHistory.bind(this);
   }
 
-  getMatchHistory = () => {};
+  getMatchHistory = () => {
+    if (this.props.account.accountId) {
+      const summonerID = `/lol/match/v4/matchlists/by-account/${this.props.account.accountId}/?api_key=${apiKey}`;
+      axios(summonerID)
+        .then(response => {
+          if (response.data.matches.length > 1)
+            this.props.addMatches(response.data.matches);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  };
 
   render() {
-    return <div>Match History</div>;
+    return (
+      <MatchHistory {...this.props} getMatchHistory={this.getMatchHistory} />
+    );
   }
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    account: state.account,
+    matches: state.matches,
+    tab: state.tab
+  };
 };
 
-export default connect()(MatchHistoryContainer);
+export default connect(
+  mapStateToProps,
+  { addMatches }
+)(MatchHistoryContainer);

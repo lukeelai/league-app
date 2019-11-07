@@ -40,6 +40,7 @@ export default (state = DefaultState, action) => {
           ...state,
           rankedInfo: []
         };
+      else if (action.ranked.length < 1) return state;
       else if (
         state.id.toLowerCase() === action.ranked[0].summonerId.toLowerCase() &&
         action.ranked.length === state.rankedInfo.length

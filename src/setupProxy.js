@@ -16,4 +16,8 @@ module.exports = app => {
     "/lol/champion-mastery/v4/champion-masteries/by-summoner/",
     proxy({ target: "https://na1.api.riotgames.com", changeOrigin: true })
   );
+  app.use(
+    "/lol/match/v4/matchlists/by-account/",
+    proxy({ target: "https://na1.api.riotgames.com", changeOrigin: true })
+  );
 };

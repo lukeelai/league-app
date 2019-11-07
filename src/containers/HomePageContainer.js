@@ -39,6 +39,7 @@ export class HomePageContainer extends React.Component {
       e.target.value = "";
     }
   };
+
   render() {
     return (
       <HomePage

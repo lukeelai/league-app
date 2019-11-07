@@ -5,3 +5,6 @@ export const ADD_RANKED_INFO = "ADD_RANKED_INFO";
 
 //Tabs
 export const SET_ATCTIVE_TAB = "SET_ATCTIVE_TAB";
+
+//Matches
+export const ADD_MATCHES = "ADD_MATCHES";

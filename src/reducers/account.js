@@ -33,6 +33,14 @@ export default (state = DefaultState, action) => {
       return state;
     case ADD_RANKED_INFO:
       if (
+        action.ranked.length < 1 &&
+        action.ranked.length !== state.rankedInfo.length
+      )
+        return {
+          ...state,
+          rankedInfo: []
+        };
+      else if (
         state.id.toLowerCase() === action.ranked[0].summonerId.toLowerCase() &&
         action.ranked.length === state.rankedInfo.length
       ) {

@@ -4,6 +4,7 @@ import { TabContent, TabPane } from "reactstrap";
 //Containers
 import RankedInfoContainer from "../containers/RankedInfoContainer";
 import ChampionMasteryContainer from "../containers/ChampionMasteryContainer";
+import MatchHistoryContainer from "../containers/MatchHistoryContainer";
 
 const HomePageTabContent = props => {
   return (
@@ -13,6 +14,9 @@ const HomePageTabContent = props => {
       </TabPane>
       <TabPane tabId="2">
         <ChampionMasteryContainer />
+      </TabPane>
+      <TabPane tabId="3">
+        <MatchHistoryContainer />
       </TabPane>
     </TabContent>
   );

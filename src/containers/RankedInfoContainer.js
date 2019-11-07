@@ -14,7 +14,7 @@ const apiKey = process.env.REACT_APP_LEAGUE_API_KEY;
 export class RankedInfoContainer extends React.Component {
   constructor(props) {
     super(props);
-    // this.getRankedInfo = this.getRankedInfo.bind(this);
+    this.getRankedInfo = this.getRankedInfo.bind(this);
   }
 
   getRankedInfo = () => {
@@ -22,7 +22,7 @@ export class RankedInfoContainer extends React.Component {
       const summonerID = `/lol/league/v4/entries/by-summoner/${this.props.account.id}/?api_key=${apiKey}`;
       axios(summonerID)
         .then(response => {
-          if (response.data.length > 0) this.props.addRankedInfo(response.data);
+          this.props.addRankedInfo(response.data);
         })
         .catch(error => {
           console.log(error);

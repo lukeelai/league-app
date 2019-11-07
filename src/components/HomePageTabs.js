@@ -26,6 +26,17 @@ const HomePageTabs = props => {
           Champion Info
         </NavLink>
       </NavItem>
+      <NavItem>
+        <NavLink
+          className={props.tab === "3" ? "active" : "inactive"}
+          onClick={() => {
+            props.toggle("3");
+          }}
+          href="#"
+        >
+          Match History
+        </NavLink>
+      </NavItem>
     </Nav>
   );
 };
